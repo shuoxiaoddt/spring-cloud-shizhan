@@ -8,7 +8,6 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 
 /**
  * Created by xiaos 2019/2/25
@@ -19,7 +18,7 @@ import javax.annotation.Resource;
 @Order(1)
 public class DingTanlMessageSenderAOP {
 
-    @Pointcut("execution(* com.shizhan.springcloud..*.*(..)) && @annotation(com.shizhan.springcloud.base.basegrammer.annotation.DingTalkMessage)")
+    @Pointcut("@annotation(com.shizhan.springcloud.base.basegrammer.annotation.DingTalkMessage)")
     private void dingtalkPintcut(){}
 
     @Around("dingtalkPintcut() && @annotation(dingTalkMessage)")
